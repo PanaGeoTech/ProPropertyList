@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO-PROPERTY-LIST | Trusted Real Estate Advisors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        .banner-divider { height: 160px; width: 100%; overflow: hidden; }
+        .feed-container { height: 500px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+        /* 3D Sphere Bullet Style */
+        .bullet-3d {
+            list-style: none;
+            position: relative;
+            padding-left: 25px;
+        }
+        .bullet-3d::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle at 4px 4px, #60a5fa, #2563eb);
+            border-radius: 50%;
+            box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+        }
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #000000;
+            margin: 2rem 0; /* Adds spacing above and below the line */
+        }
+
+</style>
+</head>
+<body class="bg-white text-slate-900 font-sans">
+
+    <!-- HEADER -->
+    <header class="py-10 text-center">
+        <h1 class="text-4xl font-black tracking-tighter">PRO-PROPERTY-LIST</h1>
+    </header>
+
+    <!-- BANNER SPANNER DIVIDER -->
+<div class="divider"></div>
+
+    <!-- MAIN TWO-COLUMN ROW TABLE -->
+    <main class="max-w-7xl mx-auto py-16 px-6">
+        
+        <table class="w-full border-collapse">
+            <tr>
+                <!-- COLUMN 1: REAL ESTATE -->
+                <td class="w-1/2 align-top pr-10 border-r border-slate-100">
+                    <div class="space-y-6">
+                        <div class="text-blue-700 text-3xl"><i class="fa-solid fa-house-chimney-window"></i></div>
+                        <h2 class="text-3xl font-bold">Real Estate</h2>
+                        <p class="text-xl font-semibold text-slate-600">Trusted Real Estate Advisors</p>
+                        <ul class="space-y-4 text-lg font-medium">
+                            <li class="bullet-3d">Over 35 years trusted Real Estate Advisor</li>
+                            <li class="bullet-3d">Real Estate Portfolio Management</li>
+                            <li class="bullet-3d">Real Estate Property Management</li>
+                            <li class="bullet-3d">Real Estate Acquisition Strategies</li>
+                        </ul>
+                        <p class="text-slate-500 italic pt-4">Providing Technology Solutions to the Real Estate industry for over three decades</p>
+                    </div>
+                </td>
+
+                <!-- COLUMN 2: DATA ANALYTICS -->
+                <td class="w-1/2 align-top pl-10">
+                    <div class="space-y-6">
+                        <div class="text-blue-700 text-3xl"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <h2 class="text-3xl font-bold uppercase">Data Analytics</h2>
+                        <p class="text-xl font-semibold text-slate-600 italic">Real World Real Estate Data Analytics</p>
+                        <ul class="space-y-4 text-lg font-medium">
+                            <li class="bullet-3d">Data-Driven Market Analysis</li>
+                            <li class="bullet-3d">Uncovering/Finding Off-Market and Extra-Market Properties</li>
+                            <li class="bullet-3d">Foreclosure Identification & Analysis</li>
+                            <li><span style="display: inline-flex; align-items: center; justify-content: center; width: 1.2em; height: 1.2em; background: #1e293b; border-radius: 3px; margin-right: 4px; vertical-align: middle;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 0.8em; height: 0.8em;">
+        <polyline points="4 17 10 11 4 5"></polyline>
+        <line x1="12" y1="19" x2="20" y2="19"></line>
+    </svg>
+</span> </li>
+                        </ul>
+                        <p class="text-blue-700 font-bold pt-4">Powered by PanaGeoTech's 40 years of computer market analytics</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+   <div id="blogger-feed-target" class="space-y-4">
+    <p class="text-center text-slate-400 italic">Loading ProPropertyList NEWS...</p>
+</div>
+
+        <!-- UNDER CONSTRUCTION FOOTER -->
+        <div class="flex justify-center mt-24 mb-12">
+            <img src="https://thenfledge.com" alt="Under Construction" class="max-w-xs">
+        </div>
+    </main>
+
+    <footer class="py-12 border-t text-center text-xs text-slate-400 uppercase tracking-widest">
+        © 2024 PRO-PROPERTY-LIST | DATA DRIVEN REAL ESTATE
+    </footer>
+
+
+<script>
+    function displayProNews(json) {
+        const target = document.getElementById('blogger-feed-target');
+        target.innerHTML = '';
+
+        if (!json || !json.feed || !json.feed.entry) {
+            target.innerHTML = '<p class="text-center">No posts found or feed unavailable.</p>';
+            return;
+        }
+
+        // Take only the 3 most recent posts
+        json.feed.entry.slice(0, 3).forEach(entry => {
+            const title = entry.title.$t || "Untitled";
+            const link = entry.link.find(l => l.rel === "alternate")?.href || "#";
+            
+            let summary = "View full story...";
+            if (entry.summary && entry.summary.$t) {
+                // Strip HTML tags and limit length
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = entry.summary.$t;
+                summary = tempDiv.textContent.substring(0, 180) + "...";
+            }
+
+            target.innerHTML += `
+                <div style="border-left: 4px solid #000; padding-left: 20px; margin-bottom: 30px;">
+                    <h3 style="font-weight: 800; font-size: 1.25rem;">
+                        <a href="${link}" target="_blank" style="text-decoration: none; color: #1e40af;">${title}</a>
+                    </h3>
+                    <p style="color: #4b5563; margin-top: 8px;">${summary}</p>
+                    <a href="${link}" target="_blank" 
+                       style="font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; letter-spacing: 0.1em;">
+                        Read Full Story →
+                    </a>
+                </div>
+            `;
+        });
+    }
+
+    // Load the feed using json-in-script
+    const script = document.createElement('script');
+    script.src = "https://pro-property-list.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=5&callback=displayProNews";
+    document.body.appendChild(script);
+</script>
+</body>
+</html>
